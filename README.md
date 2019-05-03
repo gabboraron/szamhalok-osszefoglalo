@@ -29,7 +29,7 @@ def print_command_output(output):
 fájl: [json_handling.py]() és hozzá a json: [cs1.json]()
 
 > **Figyelem!** A fájlt tilos `json.py`-nak elnevezni mert akkor 
-<pre>`module [json' has no attribute 'load'](https://stackoverflow.com/questions/20082730/module-object-has-no-attribute-loads-while-parsing-json-using-python)</pre>  hibát fog adni!
+<pre> [module json' has no attribute 'load'](https://stackoverflow.com/questions/20082730/module-object-has-no-attribute-loads-while-parsing-json-using-python)</pre>  hibát fog adni!
 
 A fájlt megnyitjuk a [szokásos módon](https://github.com/gabboraron/szamhalok-gy1#fájlkezelés) annyi különbséggel, hogy a fájlra `JSON` mintát illesztünk: `data = json.load(f)`
 
