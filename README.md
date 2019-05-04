@@ -26,10 +26,9 @@ def print_command_output(output):
 		print(str(line).strip())
 ````
 # JSON kezelés
-fájl: [json_handling.py]() és hozzá a json: [cs1.json]()
+fájl: [json_handling.py](https://github.com/gabboraron/szamhalok-osszefoglalo/blob/master/json_handling.py) és hozzá a json: [cs1.json](https://github.com/gabboraron/szamhalok-osszefoglalo/blob/master/cs1.json)
 
-> **Figyelem!** A fájlt tilos `json.py`-nak elnevezni mert akkor 
-<pre> [module json' has no attribute 'load'](https://stackoverflow.com/questions/20082730/module-object-has-no-attribute-loads-while-parsing-json-using-python)</pre>  hibát fog adni!
+> **Figyelem!** A fájlt tilos `json.py`-nak elnevezni mert akkor [module json' has no attribute 'load'](https://stackoverflow.com/questions/20082730/module-object-has-no-attribute-loads-while-parsing-json-using-python) hibát fog adni!
 
 A fájlt megnyitjuk a [szokásos módon](https://github.com/gabboraron/szamhalok-gy1#fájlkezelés) annyi különbséggel, hogy a fájlra `JSON` mintát illesztünk: `data = json.load(f)`
 
@@ -86,3 +85,26 @@ S1
 vagy ezt is lekérdezhetjük egyben: `print(data["links"][0]["points"])` ami természetesen egy tömbként adja vissza: `['A', 'S1']`.
 
 ## JSON bővítése
+Hozzuk létre a JSONt amit kezelni szeretnénk:
+````Python
+json_string1= """
+{
+	"name": "test",
+	"system": "linux",
+	"links": [
+				
+			 ]
+}
+"""
+````
+Töltsük be JSONként: `data2 = json.loads(json_string1)`
+Bővítsük *ízlés szerint*, jelen esetben a meglévő fájl *"links"* listáját másoljuk át a *"links"* be:
+````Python
+for line in data["links"]:	
+	data2["links"].append(line)
+````
+alakítuk át: `dump = json.dumps(data2)` és ezt kiírathatjuk: `print(dump)` vagy akár fájlba is menthetjük:
+````Python
+with open ('copy.json', "w") as mycopy:
+	mycopy.write(dump)
+````
